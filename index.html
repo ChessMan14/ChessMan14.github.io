@@ -42,8 +42,8 @@ We also might learn the following concepts depending on time and your willingnes
 	</p><br>
 	
 	<!--What's Happening-->
-	<h3 id="whats_happening"></h3> 
-	<p>
+	<h3 id="whats_happenning_date"></h3> 
+	<p id="whats_happenning">
 • Download and install Python
 <br>• Create Hello world program
 <br>• Learn about functions and statements
@@ -51,18 +51,21 @@ We also might learn the following concepts depending on time and your willingnes
 	</body>
 	<!--What's happening script-->
 	<script>
-		let d = new Date();
+		const d = new Date();
 		let day = d.getDay();
-		let hour = d.getHour();
-		let minute = d.getMinute();
+		let hour = d.getHours();
+		let minute = d.getMinutes();
 		if (day == 1) {
-			document.getElementById("whats_happening").innerHTML = "What's Happening Tommorow";
+			document.getElementById("whats_happenning_date").innerHTML = "What's Happening Tommorow";
 		}
-		if ((day == 2) && (hour <= 2) && (minute <= 25)) {
-			document.getElementById("whats_happening").innerHTML = "What's Happening Today";
+		else if ((day == 2) && ((hour < 14) || ((hour == 14) && (minute <= 24)))) {
+			document.getElementById("whats_happenning_date").innerHTML = "What's Happening Today";
 		}
 		else {	
-			document.getElementById("whats_happening").innerHTML = "What's Happening Next Tuesday";
+			document.getElementById("whats_happenning_date").innerHTML = "What's Happening Next Tuesday";
+			/*	
+			document.getElementById("whats_happenning").innerHTML = "• Learn about variables<br>• Learn about user defined functions<br>• Learn about control flow<br>• Learn about objects";
+			*/
 		}
 	</script>
 </html>
